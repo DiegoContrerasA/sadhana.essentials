@@ -1,7 +1,7 @@
 import './globals.css'
-import { Architects_Daughter } from 'next/font/google'
+import { Architects_Daughter as ArchitectsDaughter } from 'next/font/google'
 
-const inter = Architects_Daughter({ subsets: ['latin'], weight: ['400'] })
+const inter = ArchitectsDaughter({ subsets: ['latin'], weight: ['400'] })
 
 export const metadata = {
   title: 'Sadhana Essentials',
