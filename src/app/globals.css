@@ -41,15 +41,15 @@
     line-height: 1;
   }
 
-  .text{
+  .text {
     font-size: 40px;
   }
 
   .main {
     width: 70%;
-    min-height:300px;
-   background-size: cover;
-   margin: auto;
+    min-height: 300px;
+    background-size: cover;
+    margin: auto;
   }
-  
+
 }
