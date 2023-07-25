@@ -32,6 +32,7 @@ export default function Home () {
               className='min-w-[280px] h-[370px] aspect-[280/370]
               xs:w-[320px] xs:h-[422px] xs:aspect-[320/422]
                sm:w-[450px] sm:h-[593px] relative z-10'
+              alt='mujer con camisa negra, pantalon rojo haciendo una pose de yoga'
             />
             <div className='w-[500px] h-[500px]
             xs:w-[550px] xs:h-[550px]
@@ -54,7 +55,7 @@ export default function Home () {
             través de ellos crear tu propia secuencia?
           </p>
           <picture className='border-8 rounded-full border-white my-10'>
-            <img className='w-[280px] h-[280px] r md:w-[400px] md:h-[400px] object-cover rounded-full' src='images/s1.webp' />
+            <img className='w-[280px] h-[280px] r md:w-[400px] md:h-[400px] object-cover rounded-full' src='images/s1.webp' alt='mujer con camisa azul, pantalon negro haciendo una pose de yoga' />
           </picture>
           <h3 className='text-3xl font-bold mb-10 text-center'>En el MasterClass aprenderás</h3>
           <div className='grid gap-8 grind-cols-1 md:grid-cols-2 grid-rows-2'>
@@ -96,11 +97,11 @@ export default function Home () {
           </div>
 
           <div className='overflow-hidden border-8  border-white order-first'>
-            <img src='images/dog.webp' className='w-[100%] h-[100%] object-cover ' />
+            <img src='images/dog.webp' className='w-[100%] h-[100%] object-cover' alt='perro haciendo una parada de manos' />
           </div>
 
           <div className='overflow-hidden border-8  border-white'>
-            <img src='images/s2.webp' className='w-[100%] h-[100%] object-cover ' />
+            <img src='images/s2.webp' className='w-[100%] h-[100%] object-cover ' alt='mujer sentada sonriendo' />
           </div>
 
           <div className='md:text-2xl text-xl leading-8 font-light'>
