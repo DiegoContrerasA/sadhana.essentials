@@ -7,7 +7,7 @@ export default function Home () {
   return (
     <main className='overflow-hidden'>
       <header className=' w-full bg-accent bg-gradient-to-r from-[#E7E0E8] to-[#916a9f] px-8'>
-        <nav className='flex justify-end p-5 z-0 max-w-screen-2xl m-auto relative '>
+        <nav className='flex justify-end p-5 z-0 max-w-screen-2xl m-auto relative min-h-[116px] xs:min-h-[80px]'>
           <div className='w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] bg-secondaryText rounded-full absolute top-[-120px] left-[-100px] sm:top-[-200px] sm:left-[-200px] hero' />
           <CountDown />
         </nav>
