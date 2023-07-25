@@ -18,7 +18,7 @@ module.exports = {
         accent: '#CBB6C3'
       },
       screens: {
-        xs: '360px',
+        xs: '450px',
         ...defaultTheme.screens
       }
     }
