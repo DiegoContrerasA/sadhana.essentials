@@ -1,11 +1,18 @@
 'use client'
 
 import { useCountDown } from '@/hooks/useCountDown'
+import { memo, useEffect, useState } from 'react'
 
 const CountDown = () => {
   const { minutes, seconds, hours, days = 2, hidden } = useCountDown('2023-08-20:19:00:00')
 
-  if (hidden) return null
+  const [render, setRender] = useState(false)
+
+  useEffect(() => {
+    setRender(true)
+  }, [])
+
+  if (hidden || render.current === false) return null
 
   return (
     <div className='font-sans text-lg text-[#492f4e] flex flex-col xs:flex-row gap-2 items-center relative z-10'>
@@ -19,4 +26,4 @@ const CountDown = () => {
     </div>
   )
 }
-export default CountDown
+export default memo(CountDown)
