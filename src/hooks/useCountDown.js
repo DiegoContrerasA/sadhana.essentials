@@ -37,12 +37,10 @@ export const useCountDown = (endTime) => {
 
   const [hidden, setHidden] = useState(() => new Date(endTime) < new Date())
   const intervalRef = useRef()
-  console.log({ endTime, hidden })
+
   useEffect(() => {
     let { current: interval } = intervalRef
     const remainTime = getRemainTime(endTime)
-
-    console.log({ remainTime })
 
     if (remainTime <= 0) {
       interval && clearInterval(interval)
