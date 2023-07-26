@@ -1,17 +1,18 @@
 'use client'
 
 import { memo, useEffect, useState } from 'react'
-import Wrap from './Wrap'
+import CountDownElement from './CountDownElement'
+import { DATE } from '@/config/dates'
 
 const CountDown = () => {
   const [render, setRender] = useState(null)
 
   useEffect(() => {
-    setRender('2023-08-20:19:00:00')
+    setRender(DATE)
   }, [])
 
   if (!render) return null
 
-  return <Wrap date={render} />
+  return <CountDownElement date={render} />
 }
 export default memo(CountDown)

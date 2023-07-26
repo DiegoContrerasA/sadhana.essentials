@@ -1,7 +1,7 @@
 import { useCountDown } from '@/hooks/useCountDown'
 import { memo } from 'react'
 
-const Wrap = ({ date }) => {
+const CountDownElement = ({ date }) => {
   const { minutes, seconds, hours, days = 2, hidden } = useCountDown(date)
 
   if (hidden) return null
@@ -17,4 +17,4 @@ const Wrap = ({ date }) => {
     </div>
   )
 }
-export default memo(Wrap)
+export default memo(CountDownElement)
