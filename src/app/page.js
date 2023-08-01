@@ -14,7 +14,7 @@ export default function Home () {
       <section className='bg-[#ebe0de] text-primaryText px-8 py-40'>
         <AboutMeSection />
       </section>
-      <section id='form' className='bg-[#9570a2] py-40 px-8'>
+      <section id='form' className='bg-[#804994] py-40 px-8'>
         <ContactMeSection />
       </section>
       <FooterSection />

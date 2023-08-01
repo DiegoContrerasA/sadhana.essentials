@@ -14,19 +14,17 @@ const AboutMeSection = () => {
           las bases del yoga a través de una secuencia de saludos al sol
           y lo mejor de todo es que es <strong className='font-bold'>¡COMPLETAMENTE GRATIS!</strong>
         </p>
-        <a href='#form' className='m-auto font-bold'>
-          <Button>
-            ¡Quiero inscribirme!
-          </Button>
-        </a>
+        <Button type='link' href='#form' className='m-auto font-bold'>
+          ¡Quiero inscribirme!
+        </Button>
       </div>
 
       <div className='overflow-hidden border-8  border-white order-first'>
-        <img src='images/dog.webp' className='w-[100%] h-[100%] object-cover' alt='perro haciendo una parada de manos' />
+        <img loading='lazy' src='images/dog.webp' className='w-[100%] h-[100%] object-cover' alt='perro haciendo una parada de manos' />
       </div>
 
       <div className='overflow-hidden border-8  border-white'>
-        <img src='images/s2.webp' className='w-[100%] h-[100%] object-cover ' alt='mujer sentada sonriendo' />
+        <img loading='lazy' src='images/s2.webp' className='w-[100%] h-[100%] object-cover ' alt='mujer sentada sonriendo' />
       </div>
 
       <div className='md:text-2xl text-xl leading-8 font-light'>
@@ -52,7 +50,7 @@ const AboutMeSection = () => {
           poder perfeccionar posturas y
           movimientos.
         </p>
-        <h4 className='text-center text-4xl font-bold'>¡Te espero!</h4>
+        <h2 className='text-center text-4xl font-bold'>¡Te espero!</h2>
       </div>
     </div>
   )

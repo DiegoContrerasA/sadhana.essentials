@@ -40,7 +40,7 @@ const Form = () => {
         placeholder='Ingrese su número de telefono' type='number'
         error={errors?.phone?.message}
       />
-      <Button type='submit'>
+      <Button type='submit' className='bg-[#4f2e55]'>
         Registrarme
       </Button>
     </form>

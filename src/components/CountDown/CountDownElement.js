@@ -6,7 +6,7 @@ const CountDownElement = ({ date }) => {
 
   if (hidden) return null
   return (
-    <div className='font-sans text-lg text-[#492f4e] flex flex-col xs:flex-row gap-2 items-center relative z-10'>
+    <div className='font-sans text-lg text-[#492f4e] flex flex-col xs:flex-row gap-2 items-center relative'>
       <strong>Nos vemos en: </strong>
       <div className='flex gap-1'>
         <span className='flex justify-center items-center w-[40px] h-[40px] bg-white rounded-full p-2'>{days}</span>
