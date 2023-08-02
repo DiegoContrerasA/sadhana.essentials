@@ -1,4 +1,5 @@
 import { ERRORS } from '@/config/errors'
+import { getCurrentSession } from '@/libs/getCurrentSession'
 import prisma from '@/libs/prismadb'
 import { NextResponse } from 'next/server'
 
@@ -24,6 +25,10 @@ export const POST = async (request) => {
 
 export const GET = async () => {
   try {
+    const session = await getCurrentSession()
+
+    if (!session) return NextResponse.json({ message: 'unauthorized' }, { status: 401 })
+
     const users = await prisma.user.findMany()
 
     return NextResponse.json(users)

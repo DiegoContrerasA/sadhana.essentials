@@ -30,3 +30,23 @@ export const getUsers = async () => {
     throw new Error(error)
   }
 }
+
+export const sendEmails = async (path) => {
+  try {
+    const { data } = await axios.post(`/api/emails/${path}`)
+
+    return data
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+export const sendEmail = async (id, path) => {
+  try {
+    const { data } = await axios.post(`/api/emails/${id}/${path}`)
+
+    return data
+  } catch (error) {
+    throw new Error(error)
+  }
+}

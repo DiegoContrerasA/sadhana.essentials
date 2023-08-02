@@ -2,10 +2,11 @@
 
 import { getUsers } from '@/services/users'
 import { useEffect, useState } from 'react'
-import Button from '../Button'
+import RememberEmails from '../RememberEmails'
+import TableUsers from '../TableUsers'
 
 const AdminList = () => {
-  const [response, setResponse] = useState({ loading: false, users: [] })
+  const [response, setResponse] = useState({ loading: true, users: [] })
 
   useEffect(() => {
     setResponse({ users: [], loading: true })
@@ -16,40 +17,26 @@ const AdminList = () => {
 
   const { users, loading } = response
 
-  if (loading) return <h1>Cargando ...</h1>
+  if (loading) {
+    return (
+      <div className='max-w-2xl m-auto text-center text-xl text-gray-500 py-5'>
+        <p>Listando usuarios ...</p>
+      </div>
+    )
+  }
+
+  if (!loading && !users.length) {
+    return (
+      <div className='max-w-2xl m-auto text-center text-xl text-gray-500 py-5'>
+        <p>No hay usuarios registrados ...</p>
+      </div>
+    )
+  }
 
   return (
-    <div className='font-sans max-w-2xl mx-auto'>
-      {users.map((user) =>
-        <div key={user.id} className='flex mb-4 shadow-lg p-3 rounded-md'>
-          <div className='flex-1'>
-            <p>{user.name}</p>
-            <p>{user.phone}</p>
-            <p>{user.email}</p>
-          </div>
-          <div>
-            {user?.welcomeEmail
-              ? 'enviado'
-              : (
-                <Button>
-                  Enviar
-                </Button>
-                )}
-            {user?.remainderEmail
-              ? 'enviado'
-              : (
-                <Button>
-                  Enviar
-                </Button>)}
-            {user?.onlineEmail
-              ? 'enviado'
-              : (
-                <Button>
-                  Enviar
-                </Button>)}
-          </div>
-        </div>
-      )}
+    <div className='relative overflow-x-auto font-sans max-w-2xl m-auto'>
+      <RememberEmails />
+      <TableUsers users={users} />
     </div>
   )
 }

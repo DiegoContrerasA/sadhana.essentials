@@ -7,8 +7,7 @@ import Input from '../Input'
 import { INIT_VALUES, schema } from './schema'
 import { createUser } from '@/services/users'
 import { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { toast } from 'react-toastify'
 
 const Form = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -32,7 +31,6 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='max-w-lg m-auto flex flex-col gap-10'>
-      <ToastContainer theme='colored' />
       <Input
         {...register('name')}
         label='Nombre'
