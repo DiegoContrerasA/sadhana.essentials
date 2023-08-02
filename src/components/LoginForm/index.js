@@ -8,7 +8,7 @@ import { signIn } from 'next-auth/react'
 import Button from '@/components/Button'
 import { useState } from 'react'
 import 'react-toastify/dist/ReactToastify.css'
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -16,16 +16,20 @@ const LoginForm = () => {
     resolver: yupResolver(schema)
   })
 
+  const router = useRouter()
+
   const [loading, setLoading] = useState(false)
 
   const onSubmit = async (values) => {
     try {
       setLoading(true)
       const { error } = await signIn('credentials', { redirect: false, ...values })
-      if (error) return toast.error('Usuario o contraseña incorrectos.')
-      redirect('/admin')
+      if (error) {
+        return toast.error('Usuario o contraseña incorrectos.')
+      }
+      router.replace('/admin')
     } catch (e) {
-      toast.error('Usuario o contraseña incorrectos.')
+      toast.error('Parece que tuvimos un problema para registar tus datos, por favor intenta nuevamente.')
     } finally {
       setLoading(false)
     }

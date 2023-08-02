@@ -10,6 +10,7 @@ export const nextAuthOptions = {
       },
       async authorize ({ username, password }) {
         const { USERNAME, PASSWORD } = process.env
+
         return username === USERNAME && password === PASSWORD ? { id: '1', name: username } : null
       }
     })
