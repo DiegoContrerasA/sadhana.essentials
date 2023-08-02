@@ -20,3 +20,13 @@ export const createUser = async (payload) => {
     throw new Error(message)
   }
 }
+
+export const getUsers = async () => {
+  try {
+    const { data } = await axios.get('/api/users')
+
+    return data
+  } catch (error) {
+    throw new Error(error)
+  }
+}
