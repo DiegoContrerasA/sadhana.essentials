@@ -8,11 +8,11 @@ export default withAuth({
     authorized ({ req, token }) {
       const pathName = req.nextUrl.pathname
 
-      console.log({ pathName, token })
+      console.info({ pathName, token })
 
-      if (pathName.includes('admin') && !token) {
-        return false
-      }
+      //   if (pathName.includes('admin') && !token) {
+      //     return false
+      //   }
       return true
     }
   }

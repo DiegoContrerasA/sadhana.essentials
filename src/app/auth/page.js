@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 const Login = async () => {
   const session = await getServerSession(nextAuthOptions)
 
-  console.log({ session })
+  console.info({ session })
 
   if (session) redirect('/admin')
 
