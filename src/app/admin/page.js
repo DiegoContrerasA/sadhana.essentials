@@ -1,8 +1,6 @@
-const getUsers = () =>
-  fetch(`${process.env.BACKEND_URL}/api/users`).then(response => response.json())
-
+import prisma from '@/libs/prismadb'
 const Admin = async () => {
-  const users = await getUsers()
+  const users = await await prisma.user.findMany()
 
   return (
     <>
