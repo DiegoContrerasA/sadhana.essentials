@@ -30,19 +30,23 @@ const AdminList = () => {
           <div>
             {user?.welcomeEmail
               ? 'enviado'
-              : <Button>
-                Enviar
-                </Button>}
+              : (
+                <Button>
+                  Enviar
+                </Button>
+                )}
             {user?.remainderEmail
               ? 'enviado'
-              : <Button>
-                Enviar
-                </Button>}
+              : (
+                <Button>
+                  Enviar
+                </Button>)}
             {user?.onlineEmail
               ? 'enviado'
-              : <Button>
-                Enviar
-                </Button>}
+              : (
+                <Button>
+                  Enviar
+                </Button>)}
           </div>
         </div>
       )}
