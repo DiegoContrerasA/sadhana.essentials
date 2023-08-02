@@ -11,7 +11,7 @@ const Input = forwardRef(({ label, placeholder, id, error, ...props }, ref) => {
         placeholder={placeholder}
         {...props}
       />
-      {Boolean(error) && <p className='text-sm text-red-900 font-bold'>*{error}</p>}
+      {Boolean(error) && <p className='text-sm text-red-200 font-bold font-sans'>*{error}</p>}
     </div>
   )
 })

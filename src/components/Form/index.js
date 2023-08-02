@@ -4,21 +4,35 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import Button from '../Button'
 import Input from '../Input'
-import { schema } from './schema'
+import { INIT_VALUES, schema } from './schema'
+import { createUser } from '@/services/users'
+import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Form = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    defaultValues: { ...INIT_VALUES },
     resolver: yupResolver(schema)
   })
 
-  const onSubmit = (values) => {
-    console.log({ values })
-  }
+  const [loading, setLoading] = useState(false)
 
-  console.log({ errors })
+  const onSubmit = async (values) => {
+    setLoading(true)
+    createUser(values).then(() => {
+      toast.success(`${values.name} Gracias por registrarte a la MasterClass, pronto recibirás más información y espero la disfrutes. ¡No te la pierdas!`)
+      reset({ ...INIT_VALUES })
+    })
+      .catch((e) => {
+        toast.error(e.message)
+      })
+      .finally(() => setLoading(false))
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='max-w-lg m-auto flex flex-col gap-10'>
+      <ToastContainer theme='colored' />
       <Input
         {...register('name')}
         label='Nombre'
@@ -28,9 +42,9 @@ const Form = () => {
       />
       <Input
         {...register('email')}
-        label='Correo electronico'
+        label='Correo electrónico'
         id='email'
-        placeholder='Ingrese su correo electronico'
+        placeholder='Ingrese su correo electrónico'
         error={errors?.email?.message}
       />
       <Input
@@ -40,7 +54,7 @@ const Form = () => {
         placeholder='Ingrese su número de telefono' type='number'
         error={errors?.phone?.message}
       />
-      <Button type='submit' className='bg-[#4f2e55]'>
+      <Button type='submit' className='bg-[#4f2e55]' disabled={loading} loading={loading}>
         Registrarme
       </Button>
     </form>
