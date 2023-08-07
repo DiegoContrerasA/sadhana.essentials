@@ -46,7 +46,7 @@ const AboutMeSection = () => {
         <p className='mb-8'>
           En este <strong className='font-bold'>MasterClass</strong> te daré las bases y
           te guiaré para que tengas tu iniciación con el yoga, o
-          en caso de que ya lleves un camino recorrido.
+          en caso de que ya lleves un camino recorrido
           poder perfeccionar posturas y
           movimientos.
         </p>

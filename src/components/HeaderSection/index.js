@@ -14,7 +14,7 @@ const HeaderSection = () => {
             <h3 className='text-2xl sm:text-4xl leading-3 font-light italic text-primary'>Día de</h3>
             <h1 className='text-[90px] xs:text-[120px] sm:text-[150px] font-bold text-primaryText leading-none'>YOGA</h1>
             <p className='text-xl text-center sm:text-2xl font-light leading-none text-[#6d4575ba] mb-10 md:mb-20'>
-              agosto <strong className='font-sans italic'> 20.2023 </strong>
+              septiembre <strong className='font-sans italic'> 20.2023 </strong>
             </p>
             <Button type='link' href='#form' className='hidden md:flex  w-full min-h-[60px] '>
               ¡Inscríbete ya!
