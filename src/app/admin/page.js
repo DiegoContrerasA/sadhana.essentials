@@ -1,18 +1,18 @@
-import { getServerSession } from 'next-auth'
-import { nextAuthOptions } from '../api/auth/[...nextauth]/options'
-import { redirect } from 'next/navigation'
-import AdminList from '@/components/AdminList'
-import Nav from '@/components/Nav'
+import prisma from '@/libs/prismadb'
+import RememberEmails from '@/components/RememberEmails'
+import TableUsers from '@/components/TableUsers'
+
+const getUsers = () => prisma.user.findMany()
+
+export const dynamic = 'force-dynamic'
 
 const Admin = async () => {
-  const session = await getServerSession(nextAuthOptions)
+  const users = await getUsers()
 
-  if (!session) redirect('/auth')
   return (
-    <div>
-      <Nav />
-      <h1 className='text-center mb-5 text-4xl font-bold'>Usuarios registrados</h1>
-      <AdminList />
+    <div className='relative overflow-x-auto font-sans max-w-2xl m-auto'>
+      <RememberEmails />
+      <TableUsers users={users} />
     </div>
 
   )

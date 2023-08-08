@@ -1,3 +1,5 @@
+'use client'
+
 import useSendEmail from '@/hooks/useSendEmail'
 import RowButton from './RowButton'
 
@@ -9,6 +11,14 @@ const TableUsers = ({ users }) => {
   }
 
   const getLoadingButton = (id, path) => loading && loading === `${id}-${path}`
+
+  if (!users.length) {
+    return (
+      <div className='max-w-2xl m-auto text-center text-xl text-gray-500 py-5'>
+        <p>No hay usuarios registrados ...</p>
+      </div>
+    )
+  }
 
   return (
     <table className='w-full text-sm text-left text-gray-500'>
