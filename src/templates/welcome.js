@@ -14,7 +14,7 @@ export const WelcomeTemplate = ({ name }) => `
         <tr>
             <td>
                 <center>
-                    <img src="https://sadhana-essentials-git-develop-diegocontreras1219.vercel.app/images/email.jpg" alt="mujer en pose de yoga" style="text-align: center; max-width: 100%;" />
+                    <img src="${process.env.NEXTAUTH_URL}/images/email.jpg" alt="mujer en pose de yoga" style="text-align: center; max-width: 100%;" />
                 </center>
             </td>
         </tr>
