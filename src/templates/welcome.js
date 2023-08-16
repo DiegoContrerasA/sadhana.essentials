@@ -9,17 +9,17 @@ export const WelcomeTemplate = ({ name }) => `
 </head>
 
 <body
-    style="background-color: #e7e0e8; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #6d4575;">
-    <table style="max-width: 700px; margin: auto;">
+    style="background-color: #e4dbe5; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #6d4575;">
+    <table style="max-width: 700px; margin: auto; background-color:#e7e0e8 ;">
         <tr>
             <td>
                 <center>
-                    <img src="./header.jpg" alt="mujer en pose de yoga" style="text-align: center; max-width: 100%;" />
+                    <img src="https://sadhana-essentials-git-develop-diegocontreras1219.vercel.app/images/email.jpg" alt="mujer en pose de yoga" style="text-align: center; max-width: 100%;" />
                 </center>
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="padding-left: 20px; padding-right: 20px;">
                 <h1 style="text-align: center;">¡Hola ${name}!</h1>
                 <p style="text-align: center;">¡Qué rico poder contar contigo!</p>
                 <p style="text-align: justify;">Me siento muy entusiasmada porque he estado dedicando los últimos meses
@@ -31,7 +31,7 @@ export const WelcomeTemplate = ({ name }) => `
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="padding-left: 20px; padding-right: 20px;">
                 <p style="margin-bottom: 30px;"><strong>FECHA:</strong> Miércoles 20 de Septiembre a las 7 PM • COL /
                     PER / - 8 PM • MIA / NYC - 6 PM • MEX</p>
 
@@ -75,7 +75,7 @@ export const WelcomeTemplate = ({ name }) => `
                 </center>
             </td>
         <tr>
-            <td>
+            <td style="padding-left: 20px; padding-right: 20px;">
                <p style="margin-top: 60px;margin-bottom: 100px; text-align: center;"> Nos vemos en clase, un abrazo,con mucho ❤️ por Andrea Cardona, siguenos en <a style="text-decoration: none; color: #6d4575;"
                 href="https://www.instagram.com/sadhana_essentials"><strong>Instagram</strong></a></p>
             </td>
