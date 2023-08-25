@@ -3,10 +3,12 @@ import MasterClassSection from '@/components/MasterClassSection'
 import AboutMeSection from '@/components/AboutMeSection'
 import ContactMeSection from '@/components/ContactMeSection'
 import FooterSection from '@/components/FooterSection'
+import Hotjear from '@/components/Hotjear'
 
 export default function Home () {
   return (
     <main className='overflow-hidden'>
+      <Hotjear />
       <HeaderSection />
       <section className='py-40 bg-secondaryText px-8'>
         <MasterClassSection />

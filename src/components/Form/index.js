@@ -8,20 +8,22 @@ import { INIT_VALUES, schema } from './schema'
 import { createUser } from '@/services/users'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import { useRouter } from 'next/navigation'
 
 const Form = () => {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: { ...INIT_VALUES },
     resolver: yupResolver(schema)
   })
+
+  const router = useRouter()
 
   const [loading, setLoading] = useState(false)
 
   const onSubmit = async (values) => {
     setLoading(true)
     createUser(values).then(() => {
-      toast.success(`${values.name} Gracias por registrarte a la MasterClass, pronto recibirás más información y espero la disfrutes. ¡No te la pierdas!`)
-      reset({ ...INIT_VALUES })
+      router.push('/thank-you')
     })
       .catch((e) => {
         toast.error(e.message)
