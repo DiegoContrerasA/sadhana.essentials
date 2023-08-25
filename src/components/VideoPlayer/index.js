@@ -17,7 +17,7 @@ const VideoPlayer = forwardRef(({ loading, error, onRetry }, ref) => {
       <video
         ref={ref}
         onContextMenu={(e) => e.preventDefault()}
-        src=''
+        src='https://res.cloudinary.com/dudykjuq5/video/upload/v1692930320/cc4p3ha39szr1h1f71kl.mp4'
         className={`aspect-video w-full  ${loading ? 'opacity-0' : ''}`}
         controls
 

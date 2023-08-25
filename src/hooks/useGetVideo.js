@@ -2,7 +2,7 @@ import { LOAD_STATUS } from '@/config/loadStatus'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 export const useGetVideo = () => {
-  const [loading, setLoading] = useState(LOAD_STATUS.LOADING)
+  const [loading, setLoading] = useState(LOAD_STATUS.SUCCESS)
 
   const videoRef = useRef()
 
@@ -23,7 +23,7 @@ export const useGetVideo = () => {
   }, [])
 
   useEffect(() => {
-    getVideoBlob()
+    // getVideoBlob()
   }, [getVideoBlob])
 
   return {
