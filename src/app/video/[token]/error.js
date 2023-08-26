@@ -4,6 +4,7 @@ import { VIDEO_ERRORS } from '@/config/errors'
 import { notFound } from 'next/navigation'
 
 const Error = ({ error }) => {
+  console.log({ error })
   if ([VIDEO_ERRORS.INVALID_TOKEN, VIDEO_ERRORS.MISSING_TOKEN].includes(error?.message)) {
     notFound()
     return null
