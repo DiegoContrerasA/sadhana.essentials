@@ -2,54 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-.page {
-  width: 100%;
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  min-height: 100vh;
+@font-face {
+    font-family: "coco-gothic";
+    src: url('../../public/fonts/coco-gothic.bold.ttf') format("truetype");
+    font-weight: 700;
 }
 
-.main {
-  background-image: url('../../public/bg.svg');
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  flex: 1;
-  min-height: 500px;
+@font-face {
+    font-family: "coco-gothic";
+    src: url('../../public/fonts/coco-gothic.regular.ttf') format("truetype");
+    font-weight: 400;
 }
 
-.title {
-  font-size: 100px;
-  text-align: center;
-  padding-top: 30px;
-  color: #bb8ec1;
-  width: 80%;
-  margin: auto;
-  line-height: 1;
+@font-face {
+    font-family: "coco-gothic";
+    src: url('../../public/fonts/coco-gothic.ultralight.ttf') format("truetype");
+    font-weight: 300;
 }
 
-.text {
-  font-size: 80px;
-  padding: 30px 0;
-  text-align: center;
-}
-
-@media screen and (max-width: 600px) {
-  .title {
-    font-size: 60px;
-    line-height: 1;
+html {
+    scroll-behavior: smooth;
+    height: 100%;
   }
+  
 
-  .text {
-    font-size: 40px;
-  }
+body{
+    font-family: "coco-gothic", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: inherit;
+}
 
-  .main {
-    width: 70%;
-    min-height: 300px;
+.hero{
+    background-image: url('../../public/images/mandala-bg.svg');
     background-size: cover;
-    margin: auto;
-  }
+    opacity: .5;
+}
 
+.PhoneInputInput{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
 }

@@ -1,7 +1,5 @@
+import AuthProvider from '@/providers/AuthProvider'
 import './globals.css'
-import { Architects_Daughter as ArchitectsDaughter } from 'next/font/google'
-
-const inter = ArchitectsDaughter({ subsets: ['latin'], weight: ['400'] })
 
 export const metadata = {
   title: 'Sadhana Essentials',
@@ -11,7 +9,11 @@ export const metadata = {
 export default function RootLayout ({ children }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+      </body>
     </html>
   )
 }
