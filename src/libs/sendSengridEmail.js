@@ -2,7 +2,7 @@ import sgMail from '@sendgrid/mail'
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-export const sendSengridEmail = async ({ to, subject, text, html, personalizations }) => {
+export const sendSengridEmail = async ({ to, subject, text, html, personalizations, templateId }) => {
   try {
     await sgMail.send({
       to,
@@ -10,7 +10,8 @@ export const sendSengridEmail = async ({ to, subject, text, html, personalizatio
       subject,
       text,
       html,
-      personalizations
+      personalizations,
+      templateId
     })
     return true
   } catch (e) {

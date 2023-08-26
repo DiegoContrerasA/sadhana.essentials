@@ -1,4 +1,5 @@
 import { ERRORS } from '@/config/errors'
+import { jwtSing } from '@/config/tokens'
 import { getCurrentSession } from '@/libs/getCurrentSession'
 import prisma from '@/libs/prismadb'
 import { sendSengridEmail } from '@/libs/sendSengridEmail'
@@ -15,11 +16,15 @@ export const POST = async (_, { params }) => {
 
     if (!user) return NextResponse.json({ message: 'User not found', error: true, code: ERRORS.NOT_FOUND }, { status: 404 })
 
+    const { name, email } = user
+
+    const token = jwtSing(email)
+
     const send = await sendSengridEmail({
-      to: user?.email,
+      to: email,
       subject: 'Gracias por inscribirte',
       text: 'Bienvenido',
-      html: LastEmailTemplate({ name: user?.name })
+      html: LastEmailTemplate({ name, token })
     })
 
     if (send) {
