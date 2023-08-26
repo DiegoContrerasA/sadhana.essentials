@@ -1,7 +1,7 @@
 import VideoPlayer from '@/components/VideoPlayer'
 import { verifyToken } from '@/services/verifyToken'
 
-// export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic'
 
 const Video = async ({ params }) => {
   await verifyToken(params?.token)
