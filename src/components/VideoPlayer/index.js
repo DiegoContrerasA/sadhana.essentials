@@ -16,7 +16,7 @@ const VideoPlayer = ({ token }) => {
     <>
       <video
         onContextMenu={(e) => e.preventDefault()}
-        src='https://res.cloudinary.com/dudykjuq5/video/upload/v1692930320/cc4p3ha39szr1h1f71kl.mp4'
+        src='https://shareflow-statics.s3.amazonaws.com/master.mp4'
         className='aspect-video w-full'
         controls
         controlsList='nodownload'
