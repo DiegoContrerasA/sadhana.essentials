@@ -32,7 +32,7 @@ export const WelcomeTemplate = ({ name }) => `
         </tr>
         <tr>
             <td style="padding-left: 20px; padding-right: 20px;">
-                <p style="margin-bottom: 30px;"><strong>FECHA:</strong> Domingo 17 de Septiembre a las 10 AM • COL /
+                <p style="margin-bottom: 30px;"><strong>FECHA:</strong> Domingo 16 de Diciembre a las 10 AM • COL /
                     PER / - 11 AM • MIA / NYC - 9 AM • MEX</p>
 
                 <p><strong>PASO 1:</strong> Agenda en tu calendario:</p>

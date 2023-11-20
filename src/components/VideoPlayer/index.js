@@ -14,12 +14,16 @@ const VideoPlayer = ({ token }) => {
 
   return (
     <>
-      <video
-        onContextMenu={(e) => e.preventDefault()}
-        src='https://shareflow-statics.s3.amazonaws.com/master.mp4'
-        className='aspect-video w-full'
-        controls
-        controlsList='nodownload'
+      <iframe
+        width='100%'
+        height='auto'
+        className='aspect-video'
+        src='https://www.youtube-nocookie.com/embed/smMk6xv2lIU?si=BYRTKxfgRUQDsUHB'
+        title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;' allowfullscreen='allowfullscreen'
+        mozallowfullscreen='mozallowfullscreen'
+        msallowfullscreen='msallowfullscreen'
+        oallowfullscreen='oallowfullscreen'
+        webkitallowfullscreen='webkitallowfullscreen'
       />
       <div>
         <h1 className='text-sm xs:text-3xl text-center w-full mt-4  tracking-[8px] uppercase leading-tight font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#a852b7] to-[#83039d]'>Sadhana Essentials MASTERCLASS</h1>
