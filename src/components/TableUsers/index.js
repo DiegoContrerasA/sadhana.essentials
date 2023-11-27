@@ -24,7 +24,7 @@ const TableUsers = ({ users }) => {
     <div>
 
       <div className='flex justify-end mb-2 px-2 gap-2'>
-        <p>Total users: </p>
+        <p># de registros: </p>
         <strong> {users.length || 0}</strong>
       </div>
       <table className='w-full text-sm text-left text-gray-500'>
