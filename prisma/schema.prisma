@@ -8,15 +8,16 @@ datasource db {
 }
 
 model User {
-    id              String      @id @default(auto()) @map("_id") @db.ObjectId
-    name            String
-    phone           String
-    email           String   @unique
-    welcomeEmail    Boolean  @default(false)
-    remainderEmail  Boolean  @default(false)
-    onlineEmail     Boolean  @default(false)
-    createdAt       DateTime @default(now())
-    updatedAt       DateTime @default(now())
+    id                  String      @id @default(auto()) @map("_id") @db.ObjectId
+    name                String
+    phone               String
+    email               String   @unique
+    welcomeEmail        Boolean  @default(false)
+    remainderEmail      Boolean  @default(false)
+    previousTimeEmail   Boolean  @default(false)
+    onlineEmail         Boolean  @default(false)
+    createdAt           DateTime @default(now())
+    updatedAt           DateTime @default(now())
 }
 
 model Interaction {

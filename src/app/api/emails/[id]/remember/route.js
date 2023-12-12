@@ -1,7 +1,7 @@
 import { ERRORS } from '@/config/errors'
 import { getCurrentSession } from '@/libs/getCurrentSession'
 import prisma from '@/libs/prismadb'
-import { sendSengridEmail } from '@/libs/sendSengridEmail'
+import { sendEmailService } from '@/libs/sendEmailService'
 import { RememberTemplate } from '@/templates/remember'
 
 import { NextResponse } from 'next/server'
@@ -16,10 +16,9 @@ export const POST = async (_, { params }) => {
 
     if (!user) return NextResponse.json({ message: 'User not found', error: true, code: ERRORS.NOT_FOUND }, { status: 404 })
 
-    const send = await sendSengridEmail({
+    const send = await sendEmailService({
       to: user?.email,
-      subject: 'Gracias por inscribirte',
-      text: 'Bienvenido',
+      subject: '¡Mañana es el gran día! Conéctate a mi MasterClass gratuita!',
       html: RememberTemplate({ name: user?.name })
     })
     if (send) {

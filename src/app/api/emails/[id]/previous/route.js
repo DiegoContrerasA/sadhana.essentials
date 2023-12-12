@@ -1,9 +1,8 @@
 import { ERRORS } from '@/config/errors'
-import { jwtSing } from '@/config/tokens'
 import { getCurrentSession } from '@/libs/getCurrentSession'
 import prisma from '@/libs/prismadb'
 import { sendEmailService } from '@/libs/sendEmailService'
-import { LastEmailTemplate } from '@/templates/lastEmail'
+import { previousTemplate } from '@/templates/previousEmail'
 import { NextResponse } from 'next/server'
 
 export const POST = async (_, { params }) => {
@@ -16,26 +15,21 @@ export const POST = async (_, { params }) => {
 
     if (!user) return NextResponse.json({ message: 'User not found', error: true, code: ERRORS.NOT_FOUND }, { status: 404 })
 
-    const { name, email } = user
-
-    const token = jwtSing(email)
-
     const send = await sendEmailService({
-      to: email,
+      to: user?.email,
       subject: 'Pronto empezamos nuestra Masterclass ¡Te espero!',
-      html: LastEmailTemplate({ name, token })
+      html: previousTemplate({ name: user?.name })
     })
-
     if (send) {
       await prisma.user.update({
         where: { id: params?.id },
-        data: { onlineEmail: true }
+        data: { previousTimeEmail: true }
       })
     }
 
     return NextResponse.json(user)
   } catch (e) {
-    console.error('SEND_ONLINE_EMAIL: ', { e })
+    console.error('SEND_REMAINDER_EMAIL: ', { e })
     return NextResponse.json({ message: 'Something went wrong, please try again', error: true, code: ERRORS.SERVER_ERROR }, { status: 500 })
   }
 }
