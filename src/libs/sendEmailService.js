@@ -19,7 +19,7 @@ export const sendEmailService = async ({ to, subject, html }) => {
     const [email] = accepted
     return email
   } catch (e) {
-    console.error('SENGRID_EMAIL: ', { e })
+    console.error('NODE_MAILER: ', { e })
     return null
   }
 }
