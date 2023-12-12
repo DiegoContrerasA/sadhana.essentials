@@ -1,7 +1,7 @@
 import { ERRORS } from '@/config/errors'
 import { getCurrentSession } from '@/libs/getCurrentSession'
 import prisma from '@/libs/prismadb'
-import { sendSengridEmail } from '@/libs/sendSengridEmail'
+import { sendEmailService } from '@/libs/sendEmailService'
 import { WelcomeTemplate } from '@/templates/welcome'
 import { NextResponse } from 'next/server'
 
@@ -14,10 +14,9 @@ export const POST = async (request) => {
 
     const user = await prisma.user.create({ data: { name, email, phone } })
 
-    const send = await sendSengridEmail({
+    const send = await sendEmailService({
       to: user?.email,
       subject: 'Gracias por inscribirte',
-      text: 'Bienvenido',
       html: WelcomeTemplate({ name: user?.name })
     })
 

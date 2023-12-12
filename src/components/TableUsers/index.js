@@ -14,7 +14,7 @@ const TableUsers = ({ users }) => {
 
   if (!users.length) {
     return (
-      <div className='max-w-2xl m-auto text-center text-xl text-gray-500 py-5'>
+      <div className='m-auto text-center text-xl text-gray-500 py-5'>
         <p>No hay usuarios registrados ...</p>
       </div>
     )
@@ -30,10 +30,11 @@ const TableUsers = ({ users }) => {
       <table className='w-full text-sm text-left text-gray-500'>
         <thead className='text-xs text-gray-700 uppercase bg-gray-50'>
           <tr>
-            <th className='px-6 py-3' width='55%'>Usuario</th>
-            <th className='px-6 py-3' width='15%' align='center'>email 1</th>
-            <th className='px-6 py-3' width='15%' align='center'>email 2</th>
-            <th className='px-6 py-3' width='15%' align='center'>email 3</th>
+            <th className='px-6 py-3' width='40%'>Usuario</th>
+            <th className='px-6 py-3' width='15%' align='center'>Welcome</th>
+            <th className='px-6 py-3' width='15%' align='center'>Previus Day</th>
+            <th className='px-6 py-3' width='15%' align='center'>previous hour</th>
+            <th className='px-6 py-3' width='15%' align='center'>online</th>
           </tr>
         </thead>
         <tbody>
@@ -57,6 +58,13 @@ const TableUsers = ({ users }) => {
                     isOk={user?.remainderEmail}
                     onClick={handleSendEmail(user.id, 'remember')}
                     isLoading={getLoadingButton(user.id, 'remember')}
+                  />
+                </td>
+                <td className='px-6 py-4' align='center'>
+                  <RowButton
+                    isOk={user?.previousTimeEmail}
+                    onClick={handleSendEmail(user.id, 'previous')}
+                    isLoading={getLoadingButton(user.id, 'previous')}
                   />
                 </td>
                 <td className='px-6 py-4' align='center'>
