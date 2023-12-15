@@ -16,15 +16,16 @@ export const POST = async () => {
       select: { email: true, name: true }
     })
 
-    const requests = users.map(({ email, name }) => sendEmailService({
-      to: email,
-      subject: 'Pronto empezamos nuestra Masterclass ¡Te espero!',
-      html: previousTemplate({ name })
-    }))
-
-    const emails = await Promise.all(requests)
-
-    const updateEmails = emails.filter(Boolean)
+    const updateEmails = []
+    for (const user of users) {
+      const { name, email } = user
+      const send = await sendEmailService({
+        to: email,
+        subject: 'Pronto empezamos nuestra Masterclass ¡Te espero!',
+        html: previousTemplate({ name })
+      })
+      if (send) updateEmails.push(send)
+    }
 
     if (updateEmails.length) {
       await prisma.user.updateMany({

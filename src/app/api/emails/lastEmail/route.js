@@ -17,18 +17,17 @@ export const POST = async () => {
       select: { email: true, name: true }
     })
 
-    const requests = users.map(({ email, name }) => {
+    const updateEmails = []
+    for (const user of users) {
+      const { name, email } = user
       const token = jwtSing(email)
-      return sendEmailService({
+      const send = await sendEmailService({
         to: email,
         subject: 'Pronto empezamos nuestra Masterclass ¡Te espero!',
         html: LastEmailTemplate({ name, token })
       })
-    })
-
-    const emails = await Promise.all(requests)
-
-    const updateEmails = emails.filter(Boolean)
+      if (send) updateEmails.push(send)
+    }
 
     if (updateEmails.length) {
       await prisma.user.updateMany({
@@ -37,7 +36,7 @@ export const POST = async () => {
       })
     }
 
-    return NextResponse.json(emails)
+    return NextResponse.json(updateEmails)
   } catch (e) {
     console.error('SEND_SINGLE_ONLINE_EMAIL: ', { e })
     return NextResponse.json({ message: 'Something went wrong, please try again', error: true, code: ERRORS.SERVER_ERROR }, { status: 500 })
