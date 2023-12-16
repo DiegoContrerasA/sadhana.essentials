@@ -1,17 +1,8 @@
 'use client'
 
 import { CURRENT_YEAR } from '@/config/dates'
-import LoadPlayer from './LoadPlayer'
-import ErrorPlayer from './ErrorPlayer'
-import useGetVideo from '@/hooks/useGetVideo'
 
 const VideoPlayer = ({ token }) => {
-  const { loading, error } = useGetVideo(token)
-
-  if (loading) return <LoadPlayer />
-
-  if (error) return <ErrorPlayer />
-
   return (
     <>
       <iframe
